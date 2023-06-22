@@ -16,10 +16,15 @@ export function SearchBar() {
         placeholder="Search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            window.location.href = '/search?title=' + search
+          }
+        }}
       />
       <div className="absolute inset-y-0 right-0 flex items-center px-2">
         <Link
-          type="submit"
+          type="button"
           className="p-2 focus:bg-dark-blue focus:outline-none"
           href={'/search?title=' + search}
         >

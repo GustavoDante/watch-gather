@@ -78,17 +78,19 @@ export function Carousel({
   return (
     <div className="w-full">
       <Slider {...settings}>
-        {movies.map((movie, index) => (
-          <div key={index}>
-            <Image
-              src={`${process.env.NEXT_PUBLIC_TMBD_IMAGE_BASE_URL}${process.env.NEXT_PUBLIC_TMBD_IMAGE_SIZE}${movie.poster_path}`}
-              alt="movie"
-              width={width}
-              height={height}
-              className="h-auto w-auto rounded-2xl"
-            />
-          </div>
-        ))}
+        {movies
+          .filter((movie) => movie.poster_path !== null)
+          .map((movie, index) => (
+            <div key={index}>
+              <Image
+                src={`${process.env.NEXT_PUBLIC_TMBD_IMAGE_BASE_URL}${process.env.NEXT_PUBLIC_TMBD_IMAGE_SIZE}${movie.poster_path}`}
+                alt="movie"
+                width={width}
+                height={height}
+                className="h-auto w-auto rounded-2xl"
+              />
+            </div>
+          ))}
       </Slider>
     </div>
   )
