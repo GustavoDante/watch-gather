@@ -1,12 +1,11 @@
-'use client'
-
 import { GridOfMovies } from '@/components/GridOfMovies'
-import { useSearchParams } from 'next/navigation'
+// import { useSearchParams } from 'next/navigation'
 
 export default async function SearchPage() {
   const language = 'pt-BR'
-  const searchParams = useSearchParams()
-  const title = searchParams.get('title') // get the param from the URL
+  // const searchParams = useSearchParams()
+  // const title = searchParams.get('title') // get the param from the URL
+  const title = 'avengers'
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_TMBD_BASE_URL}/search/movie?include_adult=true&include_video=false&language=${language}&page=1&sort_by=popularity.desc&query=${title}`,
     {
