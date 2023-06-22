@@ -3,7 +3,8 @@
 import { GridOfMovies } from '@/components/GridOfMovies'
 import { useSearchParams } from 'next/navigation'
 
-export default async function SearchPage({ language = 'pt-BR' }) {
+export default async function SearchPage() {
+  const language = 'pt-BR'
   const searchParams = useSearchParams()
   const title = searchParams.get('title') // get the param from the URL
   const response = await fetch(
