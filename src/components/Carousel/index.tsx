@@ -6,20 +6,28 @@ import 'slick-carousel/slick/slick-theme.css'
 import Image from 'next/image'
 import React from 'react'
 
-export default function Carousel({
-  images,
-  slidesToShow,
-  width,
-  height,
-}: {
-  images: string[]
+interface CarouselProps {
+  movies: []
   slidesToShow: number
   width: number
   height: number
-}) {
-  interface CustomArrowProps {
-    onClick?: () => void
-  }
+}
+interface CustomArrowProps {
+  onClick?: () => void
+}
+
+export function Carousel({
+  movies,
+  slidesToShow,
+  width,
+  height,
+}: CarouselProps) {
+  const images = [
+    ...movies.map(
+      (movie: any) =>
+        `${process.env.NEXT_PUBLIC_TMBD_IMAGE_BASE_URL}${process.env.NEXT_PUBLIC_TMBD_IMAGE_SIZE}${movie.poster_path}`,
+    ),
+  ]
 
   const CustomPrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
     return (
@@ -83,7 +91,7 @@ export default function Carousel({
               alt="movie"
               width={width}
               height={height}
-              className="sm:w-50 md:w-70 lg:w-86 xl:w-86 2xl:w-86 rounded-2xl"
+              className="h-auto w-auto rounded-2xl"
             />
           </div>
         ))}

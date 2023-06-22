@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import LogoWatchGater from '../../../public/watch_together.png'
 
-export default function NavBar() {
+export function NavBar() {
   return (
     <div className="flex h-20 w-full">
       <div className="flex w-2/12 justify-start">

@@ -1,4 +1,4 @@
-import Carousel from '@/components/Carousel'
+import { Carousel } from '@/components/Carousel'
 
 export async function TopRatedSection({ language }: { language: string }) {
   const response = await fetch(
@@ -19,17 +19,10 @@ export async function TopRatedSection({ language }: { language: string }) {
 
   const movies = data.results
 
-  const images = [
-    ...movies.map(
-      (movie: any) =>
-        `${process.env.NEXT_PUBLIC_TMBD_IMAGE_BASE_URL}${process.env.NEXT_PUBLIC_TMBD_IMAGE_SIZE}${movie.poster_path}`,
-    ),
-  ]
-
   return (
     <>
       <h2 className="text-1 mt-10">Melhores Avaliados:</h2>
-      <Carousel images={images} slidesToShow={5.05} width={200} height={50} />
+      <Carousel movies={movies} slidesToShow={5.05} width={130} height={40} />
     </>
   )
 }
