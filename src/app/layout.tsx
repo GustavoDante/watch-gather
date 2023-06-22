@@ -1,6 +1,8 @@
 import './globals.css'
 import { ReactNode } from 'react'
 import { Archivo } from 'next/font/google'
+import { NavBar } from '@/components/NavBar'
+import SideBar from '@/components/SideBar'
 
 const archivo = Archivo({
   display: 'swap',
@@ -16,7 +18,15 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="br">
-      <body className={`${archivo.className}`}>{children}</body>
+      <body className={`${archivo.className}`}>
+        <div>
+          <NavBar />
+          <div className="flex w-full">
+            <SideBar />
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   )
 }

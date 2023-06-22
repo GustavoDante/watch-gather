@@ -5,9 +5,10 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Image from 'next/image'
 import React from 'react'
+import { MoviesProps } from '@/@types/Movie'
 
 interface CarouselProps {
-  movies: []
+  movies: MoviesProps[]
   slidesToShow: number
   width: number
   height: number
@@ -22,13 +23,6 @@ export function Carousel({
   width,
   height,
 }: CarouselProps) {
-  const images = [
-    ...movies.map(
-      (movie: any) =>
-        `${process.env.NEXT_PUBLIC_TMBD_IMAGE_BASE_URL}${process.env.NEXT_PUBLIC_TMBD_IMAGE_SIZE}${movie.poster_path}`,
-    ),
-  ]
-
   const CustomPrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
     return (
       <div
@@ -84,10 +78,10 @@ export function Carousel({
   return (
     <div className="w-full">
       <Slider {...settings}>
-        {images.map((image, index) => (
+        {movies.map((movie, index) => (
           <div key={index}>
             <Image
-              src={image}
+              src={`${process.env.NEXT_PUBLIC_TMBD_IMAGE_BASE_URL}${process.env.NEXT_PUBLIC_TMBD_IMAGE_SIZE}${movie.poster_path}`}
               alt="movie"
               width={width}
               height={height}

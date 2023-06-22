@@ -31,3 +31,9 @@ p {
     font-size: 1rem;
     color: #F2F2F2;
 }
+
+@layer base {
+    div.backdrop-with-content:hover > div {
+      @apply bg-blue-500;
+    }
+  }
