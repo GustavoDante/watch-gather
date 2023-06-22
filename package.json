@@ -2,6 +2,7 @@
   "name": "watch-gather",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,11 +16,20 @@
     "autoprefixer": "10.4.14",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
+    "firebase": "^9.22.1",
     "next": "13.4.4",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^1.2.0",
+    "@types/react-slick": "^0.23.10",
+    "@types/tailwindcss": "^3.1.0",
+    "prettier-plugin-tailwindcss": "^0.3.0"
   }
 }
