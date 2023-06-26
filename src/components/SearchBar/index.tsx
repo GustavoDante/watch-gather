@@ -2,11 +2,13 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import searchIcon from '../../../public/search-icon.svg'
 import { useState } from 'react'
 
 export function SearchBar() {
   const [search, setSearch] = useState('')
+  const router = useRouter()
 
   return (
     <div className="relative w-full">
@@ -18,7 +20,7 @@ export function SearchBar() {
         onChange={(e) => setSearch(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            window.location.href = '/search?title=' + search
+            router.push('/search?title=' + search)
           }
         }}
       />
@@ -26,7 +28,10 @@ export function SearchBar() {
         <Link
           type="button"
           className="p-2 focus:bg-dark-blue focus:outline-none"
-          href={'/search?title=' + search}
+          href={{
+            pathname: '/search',
+            query: { title: search },
+          }}
         >
           <Image
             src={searchIcon}
