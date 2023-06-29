@@ -1,3 +1,5 @@
+'use client'
+
 import { SearchSection } from '@/sections/SearchSection'
 // import { useSearchParams } from 'next/navigation'
 
