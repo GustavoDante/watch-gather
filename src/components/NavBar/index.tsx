@@ -13,7 +13,7 @@ export function NavBar() {
             width={110}
             height={10}
             alt="simbolo beta azul"
-            className="rounded-md"
+            className="h-auto w-auto rounded-md"
           />
         </Link>
       </div>

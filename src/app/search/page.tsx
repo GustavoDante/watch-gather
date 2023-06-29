@@ -1,17 +1,22 @@
 'use client'
 
 import { SearchSection } from '@/sections/SearchSection'
-import { useParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 
 export default async function SearchPage() {
   const language = 'pt-BR'
-  const params = useParams()
+  const searchParams = useSearchParams()
+  const title = searchParams.get('title')
 
-  console.log(params)
+  useEffect(() => {
+    console.log(title)
+  }, [title])
+
   return (
     <>
       {/* @ts-expect-error */}
-      <SearchSection language={language} title={'adsa'} />
+      <SearchSection language={language} title={title} />
     </>
   )
 }
