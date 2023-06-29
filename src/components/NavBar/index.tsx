@@ -10,8 +10,8 @@ export function NavBar() {
         <Link href={'#'}>
           <Image
             src={LogoWatchGater}
-            width={160}
-            height={80}
+            width={110}
+            height={10}
             alt="simbolo beta azul"
             className="rounded-md"
           />
