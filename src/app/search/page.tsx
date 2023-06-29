@@ -4,7 +4,7 @@ import { SearchSection } from '@/sections/SearchSection'
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 
-export default async function SearchPage() {
+export default function SearchPage() {
   const language = 'pt-BR'
   const searchParams = useSearchParams()
   const title = searchParams.get('title')
