@@ -8,7 +8,7 @@ export async function SearchSection({
   title: string
 }) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_TMBD_BASE_URL}/search/movie?include_adult=true&include_video=false&language=${language}&page=1&sort_by=popularity.desc&query=${title}`,
+    `${process.env.NEXT_PUBLIC_TMBD_BASE_URL}/search/movie?include_adult=false&include_video=false&language=${language}&page=1&sort_by=popularity.desc&query=${title}`,
     {
       next: {
         revalidate: 86400, // 1 dia em segundos*
