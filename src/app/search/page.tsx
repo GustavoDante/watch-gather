@@ -6,6 +6,7 @@ import { Suspense } from 'react'
 
 export default function SearchPage() {
   const searchParams = useSearchParams()
+  const language = 'pt-BR'
  
   const search = searchParams.get('title')
 
