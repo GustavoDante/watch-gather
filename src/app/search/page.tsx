@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 export default function SearchPage() {
   const searchParams = useSearchParams()
  
-  const search = searchParams.get('search')
+  const search = searchParams.get('title')
  
   console.log(search)
  
