@@ -22,7 +22,7 @@ export async function PopularSection({ language }: { language: string }) {
   return (
     <>
       <h2 className="text-1 mt-10">Populares:</h2>
-      <Carousel movies={movies} slidesToShow={5.05} width={130} height={40} />
+      <Carousel movies={movies} slidesToShow={5.05}/>
     </>
   )
 }

@@ -6,12 +6,13 @@ import 'slick-carousel/slick/slick-theme.css'
 import Image from 'next/image'
 import React from 'react'
 import { MoviesProps } from '@/@types/Movie'
+import Link from 'next/link'
+import { BackDrop } from '../BackDrop'
 
 interface CarouselProps {
   movies: MoviesProps[]
   slidesToShow: number
-  width: number
-  height: number
+  biggerText?: boolean
 }
 interface CustomArrowProps {
   onClick?: () => void
@@ -20,8 +21,7 @@ interface CustomArrowProps {
 export function Carousel({
   movies,
   slidesToShow,
-  width,
-  height,
+  biggerText,
 }: CarouselProps) {
   const CustomPrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
     return (
@@ -56,7 +56,7 @@ export function Carousel({
     centerMode: true,
     responsive: [
       {
-        breakpoint: 1524,
+        breakpoint: 1920,
         settings: {
           slidesToShow: slidesToShow - 1,
           slidesToScroll: 1,
@@ -73,22 +73,28 @@ export function Carousel({
         },
       },
     ],
+    className: '[&>*:nth-child(2)]:overflow-y-visible [&>*:nth-child(2)]:overflow-x-clip',
   }
 
   return (
     <div className="w-full">
       <Slider {...settings}>
         {movies
-          .filter((movie) => movie.poster_path !== null)
-          .map((movie, index) => (
-            <div key={index}>
-              <Image
-                src={`${process.env.NEXT_PUBLIC_TMBD_IMAGE_BASE_URL}${process.env.NEXT_PUBLIC_TMBD_IMAGE_SIZE}${movie.poster_path}`}
-                alt="movie"
-                width={width}
-                height={height}
-                className="h-auto w-auto rounded-2xl"
-              />
+          .filter((movie: MoviesProps) => movie.poster_path !== null)
+          .map((movie: MoviesProps, index) => (
+            <div key={index} className='group relative w-full h-full transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:z-10'>
+              <div className='w-5/6 h-full'>
+                <Link href={`#`} >
+                  <Image
+                    src={`${process.env.NEXT_PUBLIC_TMBD_IMAGE_BASE_URL}${process.env.NEXT_PUBLIC_TMBD_IMAGE_SIZE}${movie.poster_path}`}
+                    alt="movie"
+                    width={1280}
+                    height={720}
+                    className="h-full w-full rounded-2xl"
+                  />
+                </Link>
+              </div>
+              <BackDrop movie={movie} biggerText={biggerText}/>
             </div>
           ))}
       </Slider>

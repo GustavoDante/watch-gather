@@ -22,7 +22,7 @@ export async function UpComingSection({ language }: { language: string }) {
   return (
     <>
       <h2 className="text-1 mb-1">Em Breve:</h2>
-      <Carousel movies={movies} slidesToShow={4.05} width={280} height={80} />
+      <Carousel movies={movies} slidesToShow={3.05} biggerText/>
     </>
   )
 }
