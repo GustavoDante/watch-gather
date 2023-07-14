@@ -21,10 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={`${archivo.className}`}>
         <div>
           <NavBar />
-          <div className="flex w-full">
-            <SideBar />
-            {children}
-          </div>
+          {children}
         </div>
       </body>
     </html>

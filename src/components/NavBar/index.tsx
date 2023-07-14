@@ -7,7 +7,7 @@ export function NavBar() {
   return (
     <div className="flex h-20 w-full">
       <div className="flex w-2/12 justify-start">
-        <Link href={'#'}>
+        <Link href={'/'}>
           <Image
             src={LogoWatchGater}
             width={110}
