@@ -8,7 +8,6 @@ export default async function Page() {
 
   return (
     <div className="flex w-full">
-      <SideBar />
       <div className="mt-10 w-full">
       
       {/* @ts-expect-error */}
