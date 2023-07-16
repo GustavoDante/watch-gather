@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import LogoWatchGater from '../../../public/wt-icon.png'
+import LogoWatchGater from '../../../public/icons/wt-icon.png'
 import { SearchBar } from '../SearchBar'
 import { useState } from 'react'
 import SideBar from '../SideBar'

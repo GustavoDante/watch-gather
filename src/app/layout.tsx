@@ -13,6 +13,7 @@ const archivo = Archivo({
 export const metadata = {
   title: 'WatchGather',
   description: 'Escolha filmes para assistir com amigos e votem juntos!',
+  
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
