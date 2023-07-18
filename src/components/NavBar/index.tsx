@@ -8,7 +8,7 @@ import { useState } from 'react'
 import SideBar from '../SideBar'
 
 export function NavBar() {
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
 
   return (
     <>
@@ -19,8 +19,9 @@ export function NavBar() {
               src={LogoWatchGater}
               width={65}
               height={10}
+              priority={false}
               alt="Logo WatchGater"
-              className="h-auto w-auto rounded-md"
+              className="w-auto h-auto rounded-md"
             />
           </Link>
         </div>
@@ -40,7 +41,8 @@ export function NavBar() {
             </button>
         </div>
       </div>
-      <div className={`fixed rounded-l-lg right-0 top-20 w-52 bg-dark-blue h-screen z-20 ${show ? '' : 'hidden'}`}>
+      <div className={`fixed rounded-l-lg right-0 top-20 w-52 bg-dark-blue h-screen z-20 ${show ? '' : 'hidden'}`}
+            onClick={() => setShow(false)}>
           <SideBar />
       </div>
     </>

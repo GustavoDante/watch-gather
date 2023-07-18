@@ -26,20 +26,20 @@ export default function SideBar() {
         </div>
         
         <div className="flex flex-col px-3 text-base text-gray text-right">
-          <ButtonWithIcon text="Ação" img={actionIcon}/>
-          <ButtonWithIcon text="Animação" img={animationIcon}/>
-          <ButtonWithIcon text="Aventura" img={adventureIcon}/>
-          <ButtonWithIcon text="Comédia" img={comedyIcon}/>
-          <ButtonWithIcon text="Crime" img={crimeIcon}/>
-          <ButtonWithIcon text="Documentário" img={documentaryIcon}/>
-          <ButtonWithIcon text="Drama" img={dramaIcon}/>
-          <ButtonWithIcon text="Fantasia" img={fantasyIcon}/>
-          <ButtonWithIcon text="Família" img={familyIcon}/>
-          <ButtonWithIcon text="Guerra" img={warIcon}/>
-          <ButtonWithIcon text="Mistério" img={mysteryIcon}/>
-          <ButtonWithIcon text="Romance" img={romanceIcon}/>
-          <ButtonWithIcon text="Suspense" img={suspenseIcon}/>
-          <ButtonWithIcon text="Terror" img={thrillerIcon}/>
+          <ButtonWithIcon text="Ação" img={actionIcon} genreId={28}/>
+          <ButtonWithIcon text="Animação" img={animationIcon} genreId={16}/>
+          <ButtonWithIcon text="Aventura" img={adventureIcon} genreId={12}/>
+          <ButtonWithIcon text="Comédia" img={comedyIcon} genreId={35}/>
+          <ButtonWithIcon text="Crime" img={crimeIcon} genreId={80}/>
+          <ButtonWithIcon text="Documentário" img={documentaryIcon} genreId={99}/>
+          <ButtonWithIcon text="Drama" img={dramaIcon} genreId={18}/>
+          <ButtonWithIcon text="Fantasia" img={fantasyIcon} genreId={14}/>
+          <ButtonWithIcon text="Família" img={familyIcon} genreId={10751}/>
+          <ButtonWithIcon text="Guerra" img={warIcon} genreId={10752}/>
+          <ButtonWithIcon text="Mistério" img={mysteryIcon} genreId={9648}/>
+          <ButtonWithIcon text="Romance" img={romanceIcon} genreId={10749}/>
+          <ButtonWithIcon text="Suspense" img={suspenseIcon} genreId={53}/>
+          <ButtonWithIcon text="Terror" img={thrillerIcon} genreId={27}/>
         </div>
       </div>
   )
