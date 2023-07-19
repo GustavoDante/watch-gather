@@ -21,7 +21,7 @@ export async function SearchSection({
 
   const genreId = searchParams.get('genreId')
 
-  const response: MoviesResponse = await fetch(`http://localhost:3000/api/movies?genreId=${genreId}&language=${language}&title=${title}`, {
+  const response: MoviesResponse = await fetch(`${process.env.NEXT_PUBLIC_API}movies?genreId=${genreId}&language=${language}&title=${title}`, {
     method: 'GET',
   }).then(async (response) => await response.json())
 
