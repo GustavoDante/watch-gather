@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning={true}>
-      <body className={`${archivo.className}`}>
+      <body className={`${archivo.className} bg-dark-purple`}>
         <div className='p-1 lg:px-8'>
           <NavBar />
           {children}

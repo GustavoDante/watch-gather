@@ -14,13 +14,13 @@ export default async function Page() {
       {/* @ts-expect-error */}
       <UpComingSection language={language} region={region} />
       {/* @ts-expect-error */}
-      <TopRatedSection language={language} />
+      <TopRatedSection language={language} region={region} />
       {/* @ts-expect-error */}
-      <PopularSection language={language} />
+      <PopularSection language={language} region={region} />
       {/* @ts-expect-error */}
-      <TopRatedSection language={language} />
+      <TopRatedSection language={language} region={region} />
       {/* @ts-expect-error */}
-      <PopularSection language={language} />
+      <PopularSection language={language} region={region} />
       </div>
     </div>
     

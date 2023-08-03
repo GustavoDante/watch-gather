@@ -1,8 +1,13 @@
 import { Carousel } from '@/components/Carousel'
 
-export async function TopRatedSection({ language }: { language: string }) {
+interface TopRatedSectionProps {
+  language: string
+  region: string
+}
+
+export async function TopRatedSection({ language, region }: TopRatedSectionProps) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_TMBD_BASE_URL}/discover/movie?include_adult=false&include_video=false&language=${language}&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200`,
+    `${process.env.NEXT_PUBLIC_TMBD_BASE_URL}/discover/movie?include_adult=false&include_video=false&language=${language}&page=1&sort_by=vote_average.desc&without_genres=99,10755&vote_count.gte=200&region=${region}`,
     {
       next: {
         revalidate: 86400, // 1 dia em segundos*

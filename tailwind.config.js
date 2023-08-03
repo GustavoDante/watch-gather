@@ -21,6 +21,9 @@ module.exports = {
       fontFamily: {
         slick: ['Slick', 'sans-serif'],
       },
+      backgroundColor: {
+        'dark-purple': '#10010e',
+      },
     },
   },
   plugins: [],
