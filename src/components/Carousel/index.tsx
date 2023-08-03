@@ -12,7 +12,6 @@ import { BackDrop } from '../BackDrop'
 interface CarouselProps {
   movies: MoviesProps[]
   slidesToShow: number
-  biggerText?: boolean
 }
 interface CustomArrowProps {
   onClick?: () => void
@@ -21,7 +20,6 @@ interface CustomArrowProps {
 export function Carousel({
   movies,
   slidesToShow,
-  biggerText,
 }: CarouselProps) {
   const CustomPrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
     return (
@@ -119,7 +117,7 @@ export function Carousel({
                   />
                 </Link>
               </div>
-              <BackDrop movie={movie} biggerText={biggerText}/>
+              <BackDrop movie={movie}/>
             </div>
           ))}
       </Slider>
