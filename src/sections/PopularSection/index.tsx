@@ -21,8 +21,8 @@ export async function PopularSection({ language }: { language: string }) {
 
   return (
     <>
-      <h2 className="text-1 mt-10">Populares:</h2>
-      <Carousel movies={movies} slidesToShow={5.05}/>
+      <h2 className="text-sm mt-10 md:text-md lg:text-lg">Populares:</h2>
+      <Carousel movies={movies} slidesToShow={7.05}/>
     </>
   )
 }

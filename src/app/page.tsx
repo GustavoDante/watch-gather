@@ -5,13 +5,18 @@ import { UpComingSection } from '@/sections/UpComingSection'
 
 export default async function Page() {
   const language = 'pt-BR'
+  const region = 'BR'
 
   return (
     <div className="flex w-full">
       <div className="mt-10 w-full">
       
       {/* @ts-expect-error */}
-      <UpComingSection language={language} />
+      <UpComingSection language={language} region={region} />
+      {/* @ts-expect-error */}
+      <TopRatedSection language={language} />
+      {/* @ts-expect-error */}
+      <PopularSection language={language} />
       {/* @ts-expect-error */}
       <TopRatedSection language={language} />
       {/* @ts-expect-error */}

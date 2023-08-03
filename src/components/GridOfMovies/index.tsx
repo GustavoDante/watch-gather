@@ -6,7 +6,7 @@ import { BackDrop } from '../BackDrop'
 export function GridOfMovies({ movies }: { movies: MoviesProps[] }) {
   movies = movies.filter((movie) => movie.poster_path !== null)
   return (
-    <div className="mt-10 grid w-full grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <div className="mt-10 grid w-full grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-5">
       {movies
         .filter((movie) => movie.poster_path !== null)
         .map((movie, index) => (

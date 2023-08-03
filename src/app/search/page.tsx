@@ -1,4 +1,3 @@
-
 import { SearchSection } from '@/sections/SearchSection'
 
 export default function SearchPage() {

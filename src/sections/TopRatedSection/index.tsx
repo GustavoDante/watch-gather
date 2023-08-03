@@ -21,8 +21,8 @@ export async function TopRatedSection({ language }: { language: string }) {
 
   return (
     <>
-      <h2 className="text-1 mt-10">Melhores Avaliados:</h2>
-      <Carousel movies={movies} slidesToShow={5.05}/>
+      <h2 className="text-sm mt-10 md:text-md lg:text-lg">Melhores Avaliados:</h2>
+      <Carousel movies={movies} slidesToShow={7.05}/>
     </>
   )
 }

@@ -2,7 +2,6 @@ import './globals.css'
 import { ReactNode } from 'react'
 import { Archivo } from 'next/font/google'
 import { NavBar } from '@/components/NavBar'
-import SideBar from '@/components/SideBar'
 
 const archivo = Archivo({
   display: 'swap',
@@ -20,7 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning={true}>
       <body className={`${archivo.className}`}>
-        <div>
+        <div className='p-1 lg:px-8'>
           <NavBar />
           {children}
         </div>

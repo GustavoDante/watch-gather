@@ -1,8 +1,12 @@
 import { Carousel } from '@/components/Carousel'
 
-export async function UpComingSection({ language }: { language: string }) {
+interface UpComingSectionProps {
+  language: string
+  region: string
+}
+export async function UpComingSection({ language, region }: UpComingSectionProps) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_TMBD_BASE_URL}/movie/upcoming?include_adult=false&include_video=false&language=${language}&page=1&sort_by=popularity.desc`,
+    `${process.env.NEXT_PUBLIC_TMBD_BASE_URL}/movie/upcoming?include_adult=false&include_video=false&language=${language}&page=1&sort_by=popularity.desc&region=${region}`,
     {
       next: {
         revalidate: 86400, // 1 dia em segundos*
@@ -21,8 +25,8 @@ export async function UpComingSection({ language }: { language: string }) {
 
   return (
     <>
-      <h2 className="text-1 mb-1">Em Breve:</h2>
-      <Carousel movies={movies} slidesToShow={4.05} biggerText/>
+      <h2 className="text-sm mb-1 md:text-md lg:text-lg">Em Breve:</h2>
+      <Carousel movies={movies} slidesToShow={6.01} biggerText/>
     </>
   )
 }

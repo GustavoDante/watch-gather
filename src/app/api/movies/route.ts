@@ -9,8 +9,10 @@ export async function GET(request: Request) {
     const genreId = searchParams.get('genreId')
     const language = searchParams.get('language')
     const title = searchParams.get('title')
+    
+    try {
 
-    if (!!genreId) {
+    if (genreId !== 'null') {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_TMBD_BASE_URL}/discover/movie?include_adult=false&with_genres=${genreId}&language=${language}&page=1&sort_by=popularity.desc`,
           {
@@ -49,4 +51,8 @@ export async function GET(request: Request) {
 
         return NextResponse.json({ data: movies })
       }
+    }
+    catch (error) {
+      return console.error(error)
+    }
 }

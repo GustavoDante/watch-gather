@@ -61,7 +61,6 @@ export function Carousel({
           slidesToShow: slidesToShow - 1,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -70,6 +69,32 @@ export function Carousel({
           slidesToShow: slidesToShow - 2,
           slidesToScroll: 1,
           initialSlide: 1,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: slidesToShow - 3,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: slidesToShow - 4,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2.05,
+          slidesToScroll: 1,
+          dots: false,
+          centerMode: false,
         },
       },
     ],

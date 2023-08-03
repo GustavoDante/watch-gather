@@ -13,11 +13,11 @@ export function NavBar() {
   return (
     <>
       <div className="flex h-20 w-full sticky top-0 z-20">
-        <div className="flex w-2/12 justify-start">
+        <div className="flex w-2/12 justify-start items-center">
           <Link href={'/'}>
             <Image
               src={LogoWatchGater}
-              width={65}
+              width={50}
               height={10}
               priority={false}
               alt="Logo WatchGater"
@@ -26,8 +26,8 @@ export function NavBar() {
           </Link>
         </div>
 
-        <div className="flex w-10/12 items-center gap-5 text-2xl text-red-50">
-          <div className="flex items-center gap-5 text-2xl text-red-50">
+        <div className="flex w-10/12 items-center gap-5 text-2xl text-red-50 ">
+          <div className="hidden items-center gap-5 text-2xl text-red-50 md:flex">
             <Link href={'#'}>Series</Link>
             <Link href={'#'}>Filmes</Link>
           </div>
