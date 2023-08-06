@@ -113,7 +113,7 @@ export function Carousel({
                     alt="movie"
                     width={1280}
                     height={720}
-                    className="h-full w-full rounded-2xl"
+                    className="h-full w-full rounded-2xl object-cover"
                   />
                 </Link>
               </div>

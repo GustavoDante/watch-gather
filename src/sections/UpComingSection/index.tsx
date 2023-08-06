@@ -26,7 +26,7 @@ export async function UpComingSection({ language, region }: UpComingSectionProps
   return (
     <>
       <h2 className="text-sm mb-1 md:text-md lg:text-lg">Em Breve:</h2>
-      <Carousel movies={movies} slidesToShow={6.01}/>
+      <Carousel movies={movies} slidesToShow={5.01}/>
     </>
   )
 }
