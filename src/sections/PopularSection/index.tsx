@@ -4,7 +4,10 @@ interface PopularSectionProps {
   language: string
   region: string
 }
-export async function PopularSection({ language, region }: PopularSectionProps) {
+export async function PopularSection({
+  language,
+  region,
+}: PopularSectionProps) {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_TMBD_BASE_URL}/discover/movie?include_adult=false&include_video=false&language=${language}&page=1&sort_by=popularity.desc&region=${region}`,
     {
@@ -25,8 +28,8 @@ export async function PopularSection({ language, region }: PopularSectionProps) 
 
   return (
     <>
-      <h2 className="text-sm mt-10 md:text-md lg:text-lg">Populares:</h2>
-      <Carousel movies={movies} slidesToShow={7.05}/>
+      <h2 className="md:text-md mt-10 text-sm lg:text-lg">Populares:</h2>
+      <Carousel movies={movies} slidesToShow={7.05} />
     </>
   )
 }

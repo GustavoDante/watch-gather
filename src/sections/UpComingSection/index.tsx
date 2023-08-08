@@ -4,7 +4,10 @@ interface UpComingSectionProps {
   language: string
   region: string
 }
-export async function UpComingSection({ language, region }: UpComingSectionProps) {
+export async function UpComingSection({
+  language,
+  region,
+}: UpComingSectionProps) {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_TMBD_BASE_URL}/movie/upcoming?include_adult=false&include_video=false&language=${language}&page=1&sort_by=popularity.desc&region=${region}`,
     {
@@ -25,8 +28,8 @@ export async function UpComingSection({ language, region }: UpComingSectionProps
 
   return (
     <>
-      <h2 className="text-sm mb-1 md:text-md lg:text-lg">Em Breve:</h2>
-      <Carousel movies={movies} slidesToShow={5.01}/>
+      <h2 className="md:text-md mb-1 text-sm lg:text-lg">Em Breve:</h2>
+      <Carousel movies={movies} slidesToShow={5.01} />
     </>
   )
 }

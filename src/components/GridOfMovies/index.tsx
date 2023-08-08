@@ -23,7 +23,7 @@ export function GridOfMovies({ movies }: { movies: MoviesProps[] }) {
                 height={400}
               />
             </Link>
-            <BackDrop movie={movie} fullWith/>
+            <BackDrop movie={movie} fullWith />
           </div>
         ))}
     </div>

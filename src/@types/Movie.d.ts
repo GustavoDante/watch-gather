@@ -12,6 +12,27 @@ export interface MoviesProps {
   poster_path_count: number
 }
 
+interface SpokenLanguagesProps {
+  english_name: string
+  iso_639_1: string
+  name: string
+}
+
+interface ProductionCountriesProps {
+  iso_3166_1: string
+  name: string
+}
+
+interface ProductionCompaniesProps {
+  id: number
+  logo_path: string
+  name: string
+  origin_country: string
+}
+interface GenresProps {
+  id: number
+  name: string
+}
 export interface MovieFullProps {
   backdrop_path: string
   budget: number
@@ -35,26 +56,4 @@ export interface MovieFullProps {
   title: string
   vote_average: number
   vote_count: number
-}
-
-interface SpokenLanguagesProps {
-  english_name: string
-  iso_639_1: string
-  name: string
-}
-
-interface ProductionCountriesProps {
-  iso_3166_1: string
-  name: string
-}
-
-interface ProductionCompaniesProps {
-  id: number
-  logo_path: string
-  name: string
-  origin_country: string
-}
-interface GenresProps {
-  id: number
-  name: string
 }

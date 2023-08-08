@@ -12,8 +12,8 @@ export function NavBar() {
 
   return (
     <>
-      <div className="flex h-20 w-full sticky top-0 z-20">
-        <div className="flex w-2/12 justify-start items-center">
+      <div className="sticky top-0 z-20 flex h-20 w-full">
+        <div className="flex w-2/12 items-center justify-start">
           <Link href={'/'}>
             <Image
               src={LogoWatchGater}
@@ -21,7 +21,7 @@ export function NavBar() {
               height={10}
               priority={false}
               alt="Logo WatchGater"
-              className="w-auto h-auto rounded-md"
+              className="h-auto w-auto rounded-md"
             />
           </Link>
         </div>
@@ -32,20 +32,25 @@ export function NavBar() {
             <Link href={'#'}>Filmes</Link>
           </div>
           <SearchBar />
-          <button type='button'  
-            onClick={() => setShow(!show)} 
-            className='hover:text-dark-blue font-extrabold text-2xl 
-            transition delay-150 duration-300 ease-in-out 
-            hover:-translate-y-1 hover:scale-110'>
-              &#9776;
-            </button>
+          <button
+            type="button"
+            onClick={() => setShow(!show)}
+            className="text-2xl font-extrabold transition 
+            delay-150 duration-300 ease-in-out hover:-translate-y-1 
+            hover:scale-110 hover:text-dark-blue"
+          >
+            &#9776;
+          </button>
         </div>
       </div>
-      <div className={`fixed rounded-l-lg right-0 top-20 w-52 bg-dark-blue h-screen z-20 ${show ? '' : 'hidden'}`}
-            onClick={() => setShow(false)}>
-          <SideBar />
+      <div
+        className={`fixed right-0 top-20 z-20 h-screen w-52 rounded-l-lg bg-dark-blue ${
+          show ? '' : 'hidden'
+        }`}
+        onClick={() => setShow(false)}
+      >
+        <SideBar />
       </div>
     </>
-    
   )
 }

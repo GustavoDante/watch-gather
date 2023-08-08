@@ -6,7 +6,7 @@ export default function SearchPage() {
   return (
     <>
       {/* @ts-expect-error */}
-      <SearchSection language={language}/>
+      <SearchSection language={language} />
     </>
   )
 }

@@ -12,14 +12,13 @@ const archivo = Archivo({
 export const metadata = {
   title: 'WatchGather',
   description: 'Escolha filmes para assistir com amigos e votem juntos!',
-  
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning={true}>
       <body className={`${archivo.className} bg-dark-purple`}>
-        <div className='p-1 lg:px-8'>
+        <div className="p-1 lg:px-8">
           <NavBar />
           {children}
         </div>
