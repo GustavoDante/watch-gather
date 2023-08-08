@@ -4,10 +4,12 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Image from 'next/image'
-import React from 'react'
+import React, { Suspense, useState } from 'react'
 import { MoviesProps } from '@/@types/Movie'
 import Link from 'next/link'
 import { BackDrop } from '../BackDrop'
+import MovieModal from '../MovieModal'
+import LoadingWithBackdrop from '../LoadingWithBackdrop'
 
 interface CarouselProps {
   movies: MoviesProps[]
@@ -21,6 +23,9 @@ export function Carousel({
   movies,
   slidesToShow,
 }: CarouselProps) {
+  const [showModal, setShowModal] = useState(false);
+  const [movieId, setMovieId] = useState(0);
+
   const CustomPrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
     return (
       <div
@@ -79,14 +84,6 @@ export function Carousel({
         },
       },
       {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: slidesToShow - 4,
-          slidesToScroll: 1,
-          dots: false,
-        },
-      },
-      {
         breakpoint: 480,
         settings: {
           slidesToShow: 2.05,
@@ -99,15 +96,29 @@ export function Carousel({
     className: '[&>*:nth-child(2)]:overflow-y-visible [&>*:nth-child(2)]:overflow-x-clip',
   }
 
+  function handleOpenModal(movieId: number) {
+    setMovieId(movieId);
+    setShowModal(true);
+  }
+  console.log("movie")
+
   return (
     <div className="w-full">
       <Slider {...settings}>
         {movies
           .filter((movie: MoviesProps) => movie.poster_path !== null)
           .map((movie: MoviesProps, index) => (
-            <div key={index} className='group relative w-full h-full transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:z-10'>
+            
+            <button 
+              key={index} 
+              type='button' 
+              className='group relative w-full h-full transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:z-10' 
+              onClick={() => handleOpenModal(movie.id)}>
+                {/* {console.log(movie)} */}
               <div className='w-5/6 h-full'>
-                <Link href={`#`} >
+                
+                <div
+                  className='w-full h-full'>
                   <Image
                     src={`${process.env.NEXT_PUBLIC_TMBD_IMAGE_BASE_URL}${process.env.NEXT_PUBLIC_TMBD_IMAGE_SIZE}${movie.poster_path}`}
                     alt="movie"
@@ -115,12 +126,17 @@ export function Carousel({
                     height={720}
                     className="h-full w-full rounded-2xl object-cover"
                   />
-                </Link>
+                </div>
               </div>
               <BackDrop movie={movie}/>
-            </div>
+            </button>
           ))}
       </Slider>
+      <Suspense fallback={<LoadingWithBackdrop />}>
+        {/* @ts-expect-error */}
+        <MovieModal showModal={showModal} setShowModal={setShowModal} language='pt-BR' movieId={movieId} setMovieId={setMovieId}/>
+      </Suspense>
+      
     </div>
   )
 }

@@ -22,7 +22,7 @@ export async function SearchSection({ language }: SearchSectionProps) {
   const genreId = searchParams.get('genreId')
 
   const response: MoviesResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_API}movies?genreId=${genreId}&language=${language}&title=${title}&page=${currentPage}`,
+    `${process.env.NEXT_PUBLIC_API}search?genreId=${genreId}&language=${language}&title=${title}&page=${currentPage}`,
     {
       method: 'GET',
     },
