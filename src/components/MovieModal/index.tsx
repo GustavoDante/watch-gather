@@ -1,7 +1,7 @@
-'use client'
-
 import { MovieFullProps } from '@/@types/Movie'
+import { ListContext } from '@/contexts/ListContext'
 import Image from 'next/image'
+import { useContext } from 'react'
 
 interface MovieResponse {
   data: MovieFullProps
@@ -22,6 +22,7 @@ export default async function MovieModal({
   movieId,
   setMovieId,
 }: ModalProps) {
+  const { handleSetList, list } = useContext(ListContext)
   const response: MovieResponse = movieId
     ? await fetch(
         `${process.env.NEXT_PUBLIC_API}info?movieId=${movieId}&language=${language}`,
@@ -58,19 +59,31 @@ export default async function MovieModal({
     return `${day}/${month}/${year}`
   }
 
+  function handleAddToList(movie: MovieFullProps) {
+    const movieExists = list.find((item) => item.id === movie.id)
+
+    if (movieExists) {
+      handleSetList([...list])
+    } else {
+      handleSetList([...list, movie])
+    }
+  }
+
   const movie: MovieFullProps = response?.data
+
+  console.log(list)
 
   return (
     <>
       {showModal ? (
         <div className="absolute left-0 top-1/2 flex h-auto w-full items-center justify-center">
-          <div className="fixed z-50 flex h-auto max-h-[calc(100vh-10rem)] max-w-[90%] items-center justify-center overflow-y-auto overflow-x-hidden outline-none scrollbar-hide focus:outline-none">
-            <div className="relative h-auto w-auto  ">
+          <div className="fixed z-50 flex w-[90%] max-w-screen-lg items-center justify-center overflow-x-auto overflow-y-auto outline-none scrollbar-hide focus:outline-none">
+            <div className="relative h-[calc(100vh-10rem)]  w-full">
               {/* content */}
               <div className="flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none">
                 {/* header */}
-                <div className="max-h-30 relative flex items-start justify-between overflow-hidden rounded-t">
-                  <div className="w-full">
+                <div className="relative flex h-1/2 justify-between overflow-hidden rounded-t">
+                  <div className="max-h-full w-full">
                     <Image
                       src={`${process.env.NEXT_PUBLIC_TMBD_IMAGE_BASE_URL}${process.env.NEXT_PUBLIC_TMBD_IMAGE_SIZE}${movie.backdrop_path}`}
                       alt="movie"
@@ -79,7 +92,7 @@ export default async function MovieModal({
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h3 className="absolute bottom-0 z-50 flex w-full justify-center bg-gradient-to-b from-transparent to-white pt-10 text-3xl font-semibold text-purple-700">
+                  <h3 className="absolute bottom-0 z-50 flex w-full justify-center bg-gradient-to-b from-transparent to-white pb-2 pt-16 text-xl font-semibold text-purple-700 lg:text-3xl">
                     {movie.title}
                   </h3>
                   <strong
@@ -126,16 +139,20 @@ export default async function MovieModal({
                   <button
                     className="background-transparent mb-1 mr-1 px-6 py-2 text-sm font-bold uppercase text-red-500 outline-none transition-all duration-150 ease-linear focus:outline-none"
                     type="button"
+                    aria-label="Fechar"
+                    title="Fechar"
                     onClick={handleCloseModal}
                   >
                     Fechar
                   </button>
                   <button
-                    className="mb-1 mr-1 rounded bg-emerald-500 px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-emerald-600"
+                    className="mb-1 mr-1 rounded bg-emerald-500 px-4 py-2 text-xl font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:bg-emerald-600"
                     type="button"
-                    onClick={handleCloseModal}
+                    aria-label="Adicionar a lista"
+                    title="Adicionar a lista"
+                    onClick={() => handleAddToList(movie)}
                   >
-                    Salvar
+                    +
                   </button>
                 </div>
               </div>

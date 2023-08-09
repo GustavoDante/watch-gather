@@ -1,5 +1,6 @@
 export interface MoviesProps {
   id: number
+  backdrop_path: string
   poster_path: string
   title: string
   release_date: string
@@ -9,7 +10,6 @@ export interface MoviesProps {
   overview: string
   vote_count: number
   popularity: number
-  poster_path_count: number
 }
 
 interface SpokenLanguagesProps {

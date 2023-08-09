@@ -109,7 +109,6 @@ export function Carousel({ movies, slidesToShow }: CarouselProps) {
               className="group relative h-full w-full transition delay-150 duration-300 ease-in-out hover:z-10 hover:-translate-y-1 hover:scale-110"
               onClick={() => handleOpenModal(movie.id)}
             >
-              {/* {console.log(movie)} */}
               <div className="h-full w-5/6">
                 <div className="h-full w-full">
                   <Image

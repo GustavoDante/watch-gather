@@ -6,9 +6,12 @@ import LogoWatchGater from '../../../public/icons/wt-icon.png'
 import { SearchBar } from '../SearchBar'
 import { useState } from 'react'
 import SideBar from '../SideBar'
+import { useRouter } from 'next/navigation'
+import IconList from '../../../public/icons/list-icon.svg'
 
 export function NavBar() {
   const [show, setShow] = useState(false)
+  const router = useRouter()
 
   return (
     <>
@@ -27,9 +30,21 @@ export function NavBar() {
         </div>
 
         <div className="flex w-10/12 items-center gap-5 text-2xl text-red-50 ">
-          <div className="hidden items-center gap-5 text-2xl text-red-50 md:flex">
-            <Link href={'#'}>Series</Link>
-            <Link href={'#'}>Filmes</Link>
+          <div className="flex items-center">
+            <button
+              type="button"
+              onClick={() => router.push('/list')}
+              aria-label="Ver lista de filmes"
+              title="Ver lista de filmes"
+            >
+              <Image
+                src={IconList}
+                alt="rolo de filme"
+                className="w-10"
+                width={16}
+                height={16}
+              />
+            </button>
           </div>
           <SearchBar />
           <button
